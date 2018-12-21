@@ -1,12 +1,15 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.android.jokesandroidlibrary.LibJokeActivity;
+
+public class MainActivity extends AppCompatActivity implements EndpointAsyncTask.Callback {
 
     private static final String JOKE = "JOKE";
 
@@ -14,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -38,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        new EndpointAsyncTask().execute(getApplicationContext());
+        new EndpointAsyncTask(this).execute(getApplicationContext());
+    }
+
+    @Override
+    public void onFinished(String result) {
+        Intent intent = new Intent(this, LibJokeActivity.class);
+        intent.putExtra(JOKE, result);
+        startActivity(intent);
     }
 }

@@ -10,7 +10,7 @@ public class MyBean {
     private String myData;
 
     @SuppressWarnings("UnusedReturnValue")
-    public String getData() {
+    public String getData(String s) {
         myData = Jokes.tellJoke();
         return myData;
     }

@@ -30,10 +30,12 @@ public class LibJokeFragment extends Fragment {
         Bundle bundle = intent.getExtras();
 
         assert bundle != null;
-        String joke = bundle.getString(JOKE_KEY);
-        TextView jokeTextView = rootView.findViewById(R.id.joke_text_view);
-        if (joke != null && joke.length() != 0) {
-            jokeTextView.setText(joke);
+        if (intent.hasExtra(JOKE_KEY)) {
+            String joke = bundle.getString(JOKE_KEY);
+            TextView jokeTextView = rootView.findViewById(R.id.joke_text_view);
+            if (joke != null && joke.length() != 0) {
+                jokeTextView.setText(joke);
+            }
         }
         return rootView;
     }

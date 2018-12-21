@@ -3,6 +3,5 @@
     <string name="joke">This is a super funny joke.</string>
     <string name="app_name">Flavor Specific Activity - Paid</string>
     <string name="title_activity_joke">JokeActivity</string>
-<!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
